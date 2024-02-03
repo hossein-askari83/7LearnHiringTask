@@ -3,11 +3,18 @@ namespace App\Repositories;
 
 use App\Interfaces\PostRepositoryInterface;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Collection;
 
 class MySQLPostRepository implements PostRepositoryInterface
 {
-    public function getAllPosts()
+
+     /**
+     * Retrieve all posts from MySQL.
+     *
+     * @return Collection
+     */
+    public function getAllPosts():Collection
     {
-        return Post::get();
+        return Post::all();
     }
 }
