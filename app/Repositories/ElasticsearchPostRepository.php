@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories;
 
+use App\Events\PostIndexFinished;
 use App\Interfaces\PostRepositoryInterface;
 use App\Models\Post;
 use Elastic\Elasticsearch\Client;
@@ -56,5 +57,6 @@ class ElasticsearchPostRepository implements PostRepositoryInterface
             ];
         }
         $this->elasticsearch->bulk($params);
+        PostIndexFinished::dispatch();
     }
 }
