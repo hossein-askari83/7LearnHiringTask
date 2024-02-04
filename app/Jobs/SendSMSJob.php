@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Http\Helper;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -25,6 +26,6 @@ class SendSMSJob implements ShouldQueue
      */
     public function handle(): void
     {
-        
+        Helper::sendSMS(env("PHONE_NUMBER"),env("OTP_PATTERN"));
     }
 }

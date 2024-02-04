@@ -19,13 +19,12 @@ use Illuminate\Support\Facades\Log;
 
 class Helper
 {
-    public function sendSms($phone_number, $pattern, array $array)
+    public static function sendSMS($phone_number, $pattern)
     {
 
         $apiKey = env('SMS_PANEL');
         $pid = $pattern;
         $fnum = env('SMS_PANEL_NUMBER');
-        $var_count = count($array);
         //Send SMS to $phone_number
     }
 }
