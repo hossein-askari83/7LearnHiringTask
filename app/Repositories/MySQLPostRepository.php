@@ -13,8 +13,8 @@ class MySQLPostRepository implements PostRepositoryInterface
      *
      * @return Collection
      */
-    public function getAllPosts():Collection
+    public function getAllPosts():array
     {
-        return Post::all();
+        return Post::all()->toArray();
     }
 }

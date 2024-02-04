@@ -7,6 +7,7 @@ use App\Interfaces\PostRepositoryInterface;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Symfony\Component\HttpFoundation\Response;
 
 class PostController extends Controller
@@ -23,7 +24,7 @@ class PostController extends Controller
      *
      * @return JsonResponse
      */
-    public function index(Request $request):JsonResponse
+    public function index(Request $request)
     {
         $posts = $this->postRepository->getAllPosts();
         return response()->json(['data' => $posts], Response::HTTP_OK);
