@@ -27,4 +27,22 @@ class Helper
         $fnum = env('SMS_PANEL_NUMBER');
         //Send SMS to $phone_number
     }
+
+    public static function findPairGreaterThanSum(array $numbers, int $targetSum): ?array
+    {
+        $pair = null;
+        $n = count($numbers);
+
+        // Iterate through the array and find the pair
+        for ($i = 0; $i < $n; $i++) {
+            for ($j = $i + 1; $j < $n; $j++) {
+                if ($numbers[$i] + $numbers[$j] > $targetSum) {
+                    $pair = [$numbers[$i], $numbers[$j]];
+                    return $pair;
+                }
+            }
+        }
+
+        return $pair;
+    }
 }
