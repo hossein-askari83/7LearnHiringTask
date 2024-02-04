@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\V1;
 
 use App\Http\Controllers\Controller;
 use App\Interfaces\PostRepositoryInterface;
+use App\Models\Post;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -28,5 +29,9 @@ class PostController extends Controller
     {
         $posts = $this->postRepository->getAllPosts();
         return response()->json(['data' => $posts], Response::HTTP_OK);
+    }
+
+    public function show (){
+        return response()->json(['data' => "this is V1 show method"], Response::HTTP_OK);
     }
 }

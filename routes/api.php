@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function () {
     Route::get('/posts', [V1PostController::class, 'index']);
+    Route::get('/posts/{post_id}', [V1PostController::class, 'show']);
 });
 
 Route::prefix('v2')->group(function () {
